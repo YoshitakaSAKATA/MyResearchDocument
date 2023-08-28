@@ -12,6 +12,33 @@
 10. In utra_ros, obtain [utra_ros packages ](https://github.com/UmbraTek/ut_arm_ros)
 11. 
  
+## how to build multiple ROS1 workspace
+steps
+1. create main folder to keep all the workspace e.g. worksp folder
+```
+mkdir worksp
+```
+
+2. head inside the worksp folder
+```
+cd worksp
+```
+
+3. create the first ros workspace and its src folder e.g. named robot_ws
+```
+mkdir -p robot_ws/src
+```
+
+4. git, make or create the ros package as you want
+5. build the ros workspace
+
+6. add the source to the .bashrc and source it
+```
+source ~/worksp/robot_ws/devel/setup.bash
+```
+
+7. to build another ros workspace alongside with the first worksp, repeat from the step 3
+but when creating the second ros workspace, create in the worksp folder
 
 ## Run Rviz and connect with arm(Moveit and ros_industrial)
 1.  ```

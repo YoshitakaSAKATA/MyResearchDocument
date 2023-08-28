@@ -34,7 +34,7 @@ mkdir -p robot_ws/src
 
 6. add the source to the .bashrc and source it
 ```
-source ~/worksp/robot_ws/devel/setup.bash
+echo "source ~/worksp/robot_ws/devel/setup.bash" >> ~/.bashrc
 ```
 
 7. to build another ros workspace alongside with the first worksp, repeat from the step 3

@@ -6,10 +6,12 @@
 4. install GPU softwares
 5. install miniconda3
 6. The version of gazebo is 11.11.0
-7. install ros_control
-8. install ros_noetic_moveit
+7. install [ros_control](http://wiki.ros.org/ros_control)
+8. install [ros_noetic_moveit](https://moveit.ros.org/install/)
 9. make workspace contains utra_ros and camera_ws
-10. In utra_ros, obtain utra_ros packages 
+10. In utra_ros, obtain [utra_ros packages ](https://github.com/UmbraTek/ut_arm_ros)
+11. 
+ 
 
 ## Run Rviz and connect with arm(Moveit and ros_industrial)
 1.  ```

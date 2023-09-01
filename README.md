@@ -85,7 +85,40 @@ but when creating the second ros workspace, create in the worksp folder
    ```
    realsense-viewer
    ```
-   
 
 ![Screenshot from 2023-09-01 15-12-07](https://github.com/YoshitakaSAKATA/MyResearchDocument/assets/118269935/1cceff5e-6161-46d1-aa2c-1ae07d36488e)
 
+### Run via ROS1
+1. Move to workspace
+   ```
+   cd ~/worksp/camera_ws/src
+   ```
+
+2. Download realsense-ros from [Here](https://github.com/IntelRealSense/realsense-ros#installation-instructions)
+   ```
+   git clone https://github.com/IntelRealSense/realsense-ros.git
+   cd realsense-ros
+   git checkout `git tag | sort -V | grep -P "^2.\d+\.\d+" | tail -1`
+   ```
+   
+3. Build 
+
+3. Error message would be desplayed on terminal, so please install ddynamic_reconfigure
+   ```
+   sudo apt-get install ros-noetic-ddynamic-reconfigure
+   sudo apt update
+   ```
+
+4. Build again
+
+5. Run realsense2_camera using below command
+   ```
+   roslaunch realsense2_camera rs_camera.launch
+   ```
+
+   Run Image View on another terminal
+   ```
+   rosrun rqt_image_view rqt_image_view
+   ```
+
+![Screenshot from 2023-09-01 16-14-14](https://github.com/YoshitakaSAKATA/MyResearchDocument/assets/118269935/2101672c-4005-4e01-a2a4-89b935b260af)

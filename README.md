@@ -54,7 +54,7 @@ but when creating the second ros workspace, create in the worksp folder
     ```
 4. (Essensial!) You must open "Panels" ->"utra_rviz" -> "utra_panel" and check "Enable" and push "resume"
 ![Screenshot from 2023-09-01 16-29-13](https://github.com/YoshitakaSAKATA/MyResearchDocument/assets/118269935/07063aef-3b52-45f4-b7ba-9b9b808a34cd)
-
+[The video of robot running](https://mailkyutechjp-my.sharepoint.com/personal/sakata_yoshitaka414_mail_kyutech_jp/_layouts/15/stream.aspx?id=%2Fpersonal%2Fsakata%5Fyoshitaka414%5Fmail%5Fkyutech%5Fjp%2FDocuments%2FHayashiLab%2FProgress%2FIMG%5F4282%2EMOV&referrer=OfficeHome%2EWeb&referrerScenario=RecentVideo%2EView)
 
 ## September 1st - Install and update Realsense package
 1. Register the server's public key

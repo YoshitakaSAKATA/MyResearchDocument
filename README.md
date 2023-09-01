@@ -53,6 +53,8 @@ but when creating the second ros workspace, create in the worksp folder
     rosservice call /utsrv/connect "192.168.11.160" 
     ```
 4. (Essensial!) You must open "Panels" ->"utra_rviz" -> "utra_panel" and check "Enable" and push "resume"
+![Screenshot from 2023-09-01 16-29-13](https://github.com/YoshitakaSAKATA/MyResearchDocument/assets/118269935/07063aef-3b52-45f4-b7ba-9b9b808a34cd)
+
 
 ## September 1st - Install and update Realsense package
 1. Register the server's public key

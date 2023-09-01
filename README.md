@@ -1,4 +1,12 @@
 # README
+## Objective
+Control robot with DNN
+### Procedure 
+1. Detect object(karaage or mashmelo)
+2. Get pose of object
+3. Send pose to robot
+4. control robot to grasp 
+
 ## Prepare the PC for research
 1. install ubuntu 20.04 LTS on new PC.
 2. update and upgrade

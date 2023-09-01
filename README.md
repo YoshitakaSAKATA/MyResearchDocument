@@ -40,7 +40,7 @@ echo "source ~/worksp/robot_ws/devel/setup.bash" >> ~/.bashrc
 7. to build another ros workspace alongside with the first worksp, repeat from the step 3
 but when creating the second ros workspace, create in the worksp folder
 
-## August 28th-Run Rviz and connect with arm(Moveit and ros_industrial)
+## August 28th - Run Rviz and connect with arm(Moveit and ros_industrial)
 1.  ```
     roslaunch arm_controller utarm_api_server.launch arm_ip:=192.168.11.160
     ```
@@ -54,7 +54,7 @@ but when creating the second ros workspace, create in the worksp folder
     ```
 4. (Essensial!) You must open "Panels" ->"utra_rviz" -> "utra_panel" and check "Enable" and push "resume"
 
-## September 1st-Install and update Realsense package
+## September 1st - Install and update Realsense package
 1. Register the server's public key
    ```
    sudo mkdir -p /etc/apt/keyrings

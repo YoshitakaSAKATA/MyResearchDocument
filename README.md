@@ -104,7 +104,7 @@ but when creating the second ros workspace, create in the worksp folder
    cd ~/worksp/camera_ws/src
    ```
 
-2. Download realsense-ros from [Here](https://github.com/IntelRealSense/realsense-ros#installation-instructions)
+2. Download realsense-ros from [Here](https://github.com/IntelRealSense/realsense-ros#installation-instructions) (, and [also](https://github.com/IntelRealSense/realsense-ros/tree/ros1-legacy))
    ```
    git clone https://github.com/IntelRealSense/realsense-ros.git
    cd realsense-ros

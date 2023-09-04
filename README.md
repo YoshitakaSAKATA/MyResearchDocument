@@ -109,6 +109,7 @@ but when creating the second ros workspace, create in the worksp folder
    git clone https://github.com/IntelRealSense/realsense-ros.git
    cd realsense-ros
    git checkout `git tag | sort -V | grep -P "^2.\d+\.\d+" | tail -1`
+   cd ../
    ```
    
 3. Build 
@@ -121,7 +122,13 @@ but when creating the second ros workspace, create in the worksp folder
 
 4. Build again
 
-5. Run realsense2_camera using below command
+5. Source
+   ```
+   echo "source ~/worksp/camera_ws/devel/setup.bash" >> ~/.bashrc
+   source ~/.bashrc
+   ```
+   
+6. Run realsense2_camera using below command
    ```
    roslaunch realsense2_camera rs_camera.launch
    ```
@@ -130,5 +137,5 @@ but when creating the second ros workspace, create in the worksp folder
    ```
    rosrun rqt_image_view rqt_image_view
    ```
-
+7. [PointCloud2](https://qiita.com/ReoNagai/items/04dfbcf1f4f3600e8d70)
 ![Screenshot from 2023-09-01 16-14-14](https://github.com/YoshitakaSAKATA/MyResearchDocument/assets/118269935/2101672c-4005-4e01-a2a4-89b935b260af)

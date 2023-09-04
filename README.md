@@ -138,4 +138,5 @@ but when creating the second ros workspace, create in the worksp folder
    rosrun rqt_image_view rqt_image_view
    ```
 7. [PointCloud2](https://qiita.com/ReoNagai/items/04dfbcf1f4f3600e8d70)
+
 ![Screenshot from 2023-09-01 16-14-14](https://github.com/YoshitakaSAKATA/MyResearchDocument/assets/118269935/2101672c-4005-4e01-a2a4-89b935b260af)

@@ -19,7 +19,14 @@ Control robot with DNN
 9. make workspace contains utra_ros and camera_ws
 10. In utra_ros, obtain [utra_ros packages ](https://github.com/UmbraTek/ut_arm_ros)
 11. Install [Realsense SDK and Libraries](https://github.com/IntelRealSense/librealsense/blob/master/doc/distribution_linux.md)
- 
+
+### PC Info 
+|PC|Info|
+|-|-|
+|User|hayashi|
+|Password|hayashi|
+|IP address|192.168.11.2|
+
 ## how to build multiple ROS1 workspace
 steps
 1. create main folder to keep all the workspace e.g. worksp folder
@@ -140,3 +147,45 @@ but when creating the second ros workspace, create in the worksp folder
 7. [PointCloud2](https://qiita.com/ReoNagai/items/04dfbcf1f4f3600e8d70)
 
 ![Screenshot from 2023-09-01 16-14-14](https://github.com/YoshitakaSAKATA/MyResearchDocument/assets/118269935/2101672c-4005-4e01-a2a4-89b935b260af)
+
+## Setup RPi4B - September 4
+### RPi Info
+   |RPi|Info|
+   |----|-------|
+   |User|hayashi|
+   |Password|hayashi|
+   |IP address|192.168.11.3|
+   |Port|65530|
+1. Test camera module 
+2. Setting SSH of RPi4B
+   1. enable SSH of RPi
+   2. execute below command
+      ```
+      cd /boot
+      sudo mkdir ssh
+      ```
+      and reboot
+      ```
+      sudo reboot
+      ```
+      
+   3. Edit sshd_config
+      ```
+      sudo nano /etc/ssh/sshd_config
+      ```
+ 
+      Change this part (Don't forget to remove "#"!)
+      ```
+      Port 65530
+      ```
+
+      and restart ssh
+      ```
+      sudo /etc/init.d/ssh restart
+      ```
+    4. PC can connect RPi via SSH with new Port number
+       ```
+       ssh hayashi@192.168.11.3 -p 65530
+       ```
+      
+3. 

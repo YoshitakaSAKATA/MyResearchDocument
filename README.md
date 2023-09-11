@@ -174,7 +174,7 @@ but when creating the second ros workspace, create in the worksp folder
       sudo nano /etc/ssh/sshd_config
       ```
  
-      Change this part (Don't forget to remove "#"!)
+      Change this part **from 49512 to 65535 (Don't forget to remove "#"!)**
       ```
       Port 65530
       ```
@@ -183,9 +183,61 @@ but when creating the second ros workspace, create in the worksp folder
       ```
       sudo /etc/init.d/ssh restart
       ```
-    4. PC can connect RPi via SSH with new Port number
+    4. PC can connect RPi via SSH with new Port number 
        ```
        ssh hayashi@192.168.11.3 -p 65530
        ```
-      
-3. 
+    5. Make secret key and public key **on PC**
+       ```
+       ssh-keygen -t rsa -b 4096 -C "sakatayoshitaka1031@gmail.com"
+       ```
+       You will be asked where to generate the key, so press Enter
+
+    6. Make sure to execute below command **on RPi**
+       ```
+       mkdir ~/.ssh
+       ```
+       Send public key **from PC to RPi**
+       ```
+       cd ~/.ssh
+       scp -P 65530 id_rsa.pub hayashi@192.168.11.3:/home/hayashi/.ssh
+       ```
+
+       Add id_rsa.pub to authorized_keys **on RPi**
+       ```
+       cd ~/.ssh/
+       cat id_rsa.pub >> authorized_keys
+       chmod 600 authorized_keys
+       chmod 700 ~/.ssh
+       rm ~/.ssh/id_rsa.pub
+       ```
+
+    7. Connect with below command
+       ```
+       ssh hayashi@192.168.11.3 -i hayashi -p 65530
+       ```
+
+    8. Change SSH configuration on RPi
+       ```
+       sudo nano /etc/ssh /sshd_config
+       ```
+
+       Change this part 
+       ``` conf
+       #PermitRootLogin prohibit-password #to "PermitRootLogin no"
+       #PasswordAuthentication yes #to "PasswordAuthentication no"
+       #PermitEmptyPasswords no #remove "#"
+       ```
+
+    9. Make config file **with VScode on PC**
+       ```
+       Host hayashi
+               HostName 192.168.11.3
+               User hayashi
+               Port 65530
+               IdentityFile hayashi
+       ```
+
+    10. You can connect RPi with VScode
+    
+3. Send image to PC

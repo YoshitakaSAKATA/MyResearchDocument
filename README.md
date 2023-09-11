@@ -240,4 +240,5 @@ but when creating the second ros workspace, create in the worksp folder
 
     10. You can connect RPi with VScode
     
-3. Send image to PC
+3. Send stream to PC
+   Refer to [this](https://datasheets.raspberrypi.com/camera/picamera2-manual.pdf)

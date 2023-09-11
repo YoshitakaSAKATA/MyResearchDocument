@@ -148,7 +148,10 @@ but when creating the second ros workspace, create in the worksp folder
 
 ![Screenshot from 2023-09-01 16-14-14](https://github.com/YoshitakaSAKATA/MyResearchDocument/assets/118269935/2101672c-4005-4e01-a2a4-89b935b260af)
 
-## Setup RPi4B - September 4
+## Test Arducam Multi Camera Adapter Module V2.2 
+    Please refer to [Quick Start](https://github.com/ArduCAM/RaspberryPi/tree/master/Multi_Camera_Adapter/Multi_Adapter_Board_4Channel)
+    
+## Setup RPi4B - September 8
 ### RPi Info
    |RPi|Info|
    |----|-------|
@@ -240,5 +243,6 @@ but when creating the second ros workspace, create in the worksp folder
 
     10. You can connect RPi with VScode
     
-3. Send stream to PC
-   Refer to [this](https://datasheets.raspberrypi.com/camera/picamera2-manual.pdf)
+## Send stream to PC - September 11
+   
+   Please refer to [this document about Picamera2](https://datasheets.raspberrypi.com/camera/picamera2-manual.pdf)

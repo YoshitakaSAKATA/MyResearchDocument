@@ -151,6 +151,23 @@ but when creating the second ros workspace, create in the worksp folder
 ## Test Arducam Multi Camera Adapter Module V2.2 - September 6
 Please refer to [Quick start](https://github.com/ArduCAM/RaspberryPi/tree/master/Multi_Camera_Adapter/Multi_Adapter_Board_4Channel)
 
+**Don't get the wrong model when you edit the config.txt!** 
+There are 3 cameras, two Camera Module v3(imx708) and one Camera Module v2(imx219). 
+When a camera is not recognized, you have to edit sensor number on config.txt.
+```
+sudo nano /boot/config.txt
+```
+Please make sure to enter the correct model number.
+
+**This part**
+```
+dtoverlay="sensor number"
+```
+
+
+
+
+
 ## Setup RPi4B - September 8
 ### RPi Info
    |RPi|Info|

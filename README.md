@@ -246,8 +246,25 @@ Please refer to [Quick start](https://github.com/ArduCAM/RaspberryPi/tree/master
 ## Send stream to PC - September 11
 Please refer to [this document about Picamera2](https://datasheets.raspberrypi.com/camera/picamera2-manual.pdf)
 
-## Send stream to PC use ROS1 - September 26
-
+## Send stream to PC with ROS1 - September 26
+1. ```
+   roscore
+   ```
+2. On new terminal, run program to recieve and Publish Image
+   ```
+   rosrun gripper_camera TcpStreamAndPublish.py
+   ```
+   
+3. Connect RPi on SSH and run program to capture and send image to PC with TCP
+   ```
+   python TcpStreamClient.py
+   ```
+4. You can see Image on rqt_image
+   Images will be stored in **camera_ws/src** as image_YMDHMS.jpg
+   ```
+   rqt_image_view
+   ```
+   
 ## Control gripper 
 ### Imformation about motor
 |Part|Name|

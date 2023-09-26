@@ -21,7 +21,7 @@ Control robot with DNN
 11. Install [Realsense SDK and Libraries](https://github.com/IntelRealSense/librealsense/blob/master/doc/distribution_linux.md)
 
 ### PC Info 
-|PC|Info|
+|Info||
 |-|-|
 |User|hayashi|
 |Password|hayashi|
@@ -245,3 +245,11 @@ Please refer to [Quick start](https://github.com/ArduCAM/RaspberryPi/tree/master
     
 ## Send stream to PC - September 11
 Please refer to [this document about Picamera2](https://datasheets.raspberrypi.com/camera/picamera2-manual.pdf)
+
+## Send stream to PC use ROS1 - September 26
+
+## Control gripper 
+### Imformation about motor
+|Part|Name|
+|-|-|
+|Stepper Motor|Makerbase mks servo42c v1.0(Nema17)|

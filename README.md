@@ -250,7 +250,7 @@ Please refer to [this document about Picamera2](https://datasheets.raspberrypi.c
 1. ```
    roscore
    ```
-2. On new terminal, run program to recieve and Publish Image
+2. On new terminal, run program to recieve and publish Image
    ```
    rosrun gripper_camera TcpStreamAndPublish.py
    ```

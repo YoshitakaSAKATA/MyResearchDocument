@@ -267,8 +267,9 @@ Please refer to [this document about Picamera2](https://datasheets.raspberrypi.c
 1. ```
    roscore
    ```
-2. On new terminal, run program to recieve and publish Image
+2. On new terminal, go to camera_ws and run program to recieve and publish Image
    ```
+   cd ~/worksp/camera_ws/
    rosrun gripper_camera TcpStreamAndPublish.py
    ```
    

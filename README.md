@@ -300,4 +300,5 @@ roslaunch utra6_850_moveit_config run_with_utra6_850.launch
 ```
 
 新しくモーションプランニング用のパッケージを作り, 実行 
+/home/hayashi/worksp/utra_ws/src/utra_motion_planning/src/utra_motion_test.py
 **怪しい動きをしたらすぐに緊急停止ボタンを押す**

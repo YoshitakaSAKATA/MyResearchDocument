@@ -293,12 +293,15 @@ Please refer to [this document about Picamera2](https://datasheets.raspberrypi.c
 
 
 ## MoveItによるアームのコントロール
-以下のコマンドを実行
-```
-roslaunch arm_controller utarm_api_server.launch arm_ip:=192.168.11.160
-roslaunch utra6_850_moveit_config run_with_utra6_850.launch
-```
+1. 以下のコマンドを実行
+    ```
+    roslaunch arm_controller utarm_api_server.launch arm_ip:=192.168.11.160
+    roslaunch utra6_850_moveit_config run_with_utra6_850.launch
+    ```
 
-新しくモーションプランニング用のパッケージを作り, 実行 
-/home/hayashi/worksp/utra_ws/src/utra_motion_planning/src/utra_motion_test.py
+2. 新しくモーションプランニング用のパッケージを作り, 実行 
+    /home/hayashi/worksp/utra_ws/src/utra_motion_planning/src/utra_motion_test.pyにある
+   ```
+   rosrun utra_motion_planning utra_motion_test.py
+   ```
 **怪しい動きをしたらすぐに緊急停止ボタンを押す**

@@ -306,3 +306,19 @@ Please refer to [this document about Picamera2](https://datasheets.raspberrypi.c
    ```
 
    **怪しい動きをしたらすぐに緊急停止ボタンを押す**
+
+##YOLACT環境構築
+1. リポジトリインストール
+   ```
+   git clone https://github.com/dbolya/yolact.git
+   cd yolact
+   ```
+2. condaで仮想環境(yolact-env)をつくる
+   ```
+   conda env create -f environment.yml
+   ```
+3. 環境起動
+   ```
+   conda activate yolact-env
+   ```
+   

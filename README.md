@@ -11,7 +11,7 @@ Control robot with DNN
 1. install ubuntu 20.04 LTS on new PC.
 2. update and upgrade
 3. install ROS-noetic
-4. install GPU softwares
+4. install [GPU softwares](https://www.cyberciti.biz/faq/ubuntu-linux-install-nvidia-driver-latest-proprietary-driver/)
 5. install miniconda3
 6. The version of gazebo is 11.11.0
 7. install [ros_control](http://wiki.ros.org/ros_control)
@@ -307,7 +307,7 @@ Please refer to [this document about Picamera2](https://datasheets.raspberrypi.c
 
    **怪しい動きをしたらすぐに緊急停止ボタンを押す**
 
-##YOLACT環境構築
+## YOLACT環境構築
 1. リポジトリインストール
    ```
    git clone https://github.com/dbolya/yolact.git

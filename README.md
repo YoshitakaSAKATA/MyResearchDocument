@@ -330,15 +330,47 @@ Please refer to [this document about Picamera2](https://datasheets.raspberrypi.c
    cd worksp
    mkdir -p yolo_ws/src
    ```
-2. vision_msgとcommon_msgをワークスペースに入れておく
+2. vision_msgとcommon_msgをワークスペースに入れておく(noetic-develで)
    ```
    sudo apt-get install ros-noetic-vision-msgs
    ```
 
    ```
-   git clone
+   git clone -b noetic-devel https://github.com/ros/common_msgs.git
+   git clone -b noetic-devel https://github.com/ros-perception/vision_msgs.git
    ```
 
-3. エラーが起きたときの参考用
-   3.1. [Error when invoking catkin_make #26](https://github.com/lukazso/yolov7-ros/issues/26)
-   3.2. [Issues and resolution when installing yolov7_ros #14](https://github.com/lukazso/yolov7-ros/issues/14)
+3. yolov7.launchを編集する<br>
+   weights_path, img_topic, param_nameのところ
+   ```xml
+   <launch>
+        <node pkg="yolov7_ros" type="detect_ros.py" name="detect" output="screen"
+        ns="yolov7">
+            <!-- Download the official weights from the original repo -->
+            <param name="weights_path" type="str"
+            value="/home/hayashi/worksp/yolo_ws/src/yolov7_ros/weights/yolov7-e6e.pt"/>
+            <!-- Path to a class_labels.txt file containing your desired class labels. The i-th entry corresponds to the i-th class id. For example, in coco class label 0 corresponds to             'person'. Files for the coco and berkeley deep drive datasets are provided in the 'class_labels/' directory. If you leave it empty then no class labels are visualized.-->
+            <param name="classes_path" type="str" value="/home/hayashi/worksp/yolo_ws/src/yolov7_ros/class_labels/coco.txt" />
+            <!-- topic name to subscribe to -->
+            <param name="img_topic" type="str" value="/camera/color/image_raw" />
+            <!-- topic name for the detection output -->
+            <param name="out_topic" type="str" value="yolov7" />
+            <!-- confidence threshold -->
+            <param name="conf_thresh" type="double" value="0.35" />
+            <!-- intersection over union threshold -->
+            <param name="iou_thresh" type="double" value="0.45" />
+            <!-- queue size for publishing -->
+            <param name="queue_size" type="int" value="1" />
+            <!-- image size to which to resize each input image before feeding into the
+            network (the final output is rescaled to the original image size) -->
+            <param name="img_size" type="int" value="640" />
+            <!-- flag whether to also publish image with the visualized detections -->
+            <param name="visualize" type="bool" value="true" />
+            <!-- 'cuda' or 'cpu' -->
+            <param name="device" type="str" value="cuda" />
+        </node>
+    </launch>
+   ```
+5. エラーが起きたときの参考用
+   1. [Error when invoking catkin_make #26](https://github.com/lukazso/yolov7-ros/issues/26)
+   2. [Issues and resolution when installing yolov7_ros #14](https://github.com/lukazso/yolov7-ros/issues/14)

@@ -321,4 +321,24 @@ Please refer to [this document about Picamera2](https://datasheets.raspberrypi.c
    ```
    conda activate yolact-env
    ```
-   
+
+## Yolov7_ros環境構築
+上のYOLACTの環境構築で詰まったのでYOLOv7を使う
+[Yolov7_ros](https://github.com/lukazso/yolov7-ros)
+1. ワークスペース(yolo_ws)を作る
+   ```
+   cd worksp
+   mkdir -p yolo_ws/src
+   ```
+2. vision_msgとcommon_msgをワークスペースに入れておく
+   ```
+   sudo apt-get install ros-noetic-vision-msgs
+   ```
+
+   ```
+   git clone
+   ```
+
+3. エラーが起きたときの参考用
+   3.1. [Error when invoking catkin_make #26](https://github.com/lukazso/yolov7-ros/issues/26)
+   3.2. [Issues and resolution when installing yolov7_ros #14](https://github.com/lukazso/yolov7-ros/issues/14)

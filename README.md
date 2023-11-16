@@ -371,6 +371,11 @@ Please refer to [this document about Picamera2](https://datasheets.raspberrypi.c
         </node>
     </launch>
    ```
-5. エラーが起きたときの参考用
+4. 起動方法
+   realsenseノードを起動した後
+   ```
+   roslaunch yolov7_ros yolov7.launch
+   ```
+6. エラーが起きたときの参考用
    1. [Error when invoking catkin_make #26](https://github.com/lukazso/yolov7-ros/issues/26)
    2. [Issues and resolution when installing yolov7_ros #14](https://github.com/lukazso/yolov7-ros/issues/14)

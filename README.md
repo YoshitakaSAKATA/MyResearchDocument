@@ -371,7 +371,13 @@ Please refer to [this document about Picamera2](https://datasheets.raspberrypi.c
         </node>
     </launch>
    ```
-4. 起動方法
+4. 忘れずに
+   ```
+   source devel/setup.bash
+   ```
+   
+5. 起動方法
+   
    realsenseノードを起動した後
    ```
    roslaunch yolov7_ros yolov7.launch
@@ -379,3 +385,11 @@ Please refer to [this document about Picamera2](https://datasheets.raspberrypi.c
 6. エラーが起きたときの参考用
    1. [Error when invoking catkin_make #26](https://github.com/lukazso/yolov7-ros/issues/26)
    2. [Issues and resolution when installing yolov7_ros #14](https://github.com/lukazso/yolov7-ros/issues/14)
+
+## データセット作成
+**今後アノテーションツールを変えるかも->cvat**
+1. labelmeの仮想環境を作る
+2. データセット作成(今回のラベルはmarshmallow)
+   100枚の画像に対してアノテーション
+3. [labelme2yolo](https://github.com/rooneysh/Labelme2YOLO/blob/main/labelme2yolo.py)を使ってjsonをtxtにコンバート
+4. 

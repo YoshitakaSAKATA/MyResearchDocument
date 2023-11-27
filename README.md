@@ -393,3 +393,8 @@ Please refer to [this document about Picamera2](https://datasheets.raspberrypi.c
    100枚の画像に対してアノテーション
 3. [labelme2yolo](https://github.com/rooneysh/Labelme2YOLO/blob/main/labelme2yolo.py)を使ってjsonをtxtにコンバート
 4. 
+
+## 学習
+```
+python3 train.py --workers 8 --device 0 --batch-size 16 --data data/YOLODataset/dataset.yaml  --img 640 640 --cfg cfg/training/yolov7.yaml --weights 'yolov7_training.pt' --name yolov7-marshmallow --hyp data/hyp.scratch.custom.yaml
+```

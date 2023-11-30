@@ -390,11 +390,12 @@ Please refer to [this document about Picamera2](https://datasheets.raspberrypi.c
 **今後アノテーションツールを変えるかも->cvat**
 1. labelmeの仮想環境を作る
 2. データセット作成(今回のラベルはmarshmallow)
-   100枚の画像に対してアノテーション
+   webから集めた20枚の画像と自分で撮った80枚の画像の計100枚の画像に対してアノテーション
 3. [labelme2yolo](https://github.com/rooneysh/Labelme2YOLO/blob/main/labelme2yolo.py)を使ってjsonをtxtにコンバート
 4. 
 
 ## 学習
+バッチ数8(これが限界)、エポック数300で学習
 ```
-python3 train.py --workers 8 --device 0 --batch-size 16 --data data/YOLODataset/dataset.yaml  --img 640 640 --cfg cfg/training/yolov7.yaml --weights 'yolov7_training.pt' --name yolov7-marshmallow --hyp data/hyp.scratch.custom.yaml
+python3 train.py --workers 8 --device 0 --batch-size 8 --data data/YOLODataset/dataset.yaml  --img 640 640 --cfg cfg/training/yolov7.yaml --weights 'yolov7_training.pt' --name yolov7-marshmallow --hyp data/hyp.scratch.custom.yaml
 ```

@@ -399,3 +399,36 @@ Please refer to [this document about Picamera2](https://datasheets.raspberrypi.c
 ```
 python3 train.py --workers 8 --device 0 --batch-size 8 --data data/YOLODataset/dataset.yaml  --img 640 640 --cfg cfg/training/yolov7.yaml --weights 'yolov7_training.pt' --name yolov7-marshmallow --hyp data/hyp.scratch.custom.yaml
 ```
+
+## 実行
+launchファイルを以下のように編集<br>
+デフォルトのconf(confidence)だと誤検知が多かったため0.6付近で設定
+``` xml
+    <launch>
+        <node pkg="yolov7_ros" type="detect_ros.py" name="detect" output="screen"
+        ns="yolov7">
+            <!-- Download the official weights from the original repo -->
+            <param name="weights_path" type="str"
+            value="/home/hayashi/worksp/yolo_ws/src/yolov7_ros/src/marshmallow_8_300_1128_best.pt"/>
+            <!-- Path to a class_labels.txt file containing your desired class labels. The i-th entry corresponds to the i-th class id. For example, in              coco class label 0 corresponds to 'person'. Files for the coco and berkeley deep drive datasets are provided in the 'class_labels/'                      directory. If you leave it empty then no class labels are visualized.-->
+            <param name="classes_path" type="str" value="/home/hayashi/worksp/yolo_ws/src/yolov7_ros/class_labels/coco_marshmallow.txt" />
+            <!-- topic name to subscribe to -->
+            <param name="img_topic" type="str" value="/camera/color/image_raw" />
+            <!-- topic name for the detection output -->
+            <param name="out_topic" type="str" value="yolov7" />
+            <!-- confidence threshold -->
+            <param name="conf_thresh" type="double" value="0.65" />
+            <!-- intersection over union threshold -->
+            <param name="iou_thresh" type="double" value="0.45" />
+            <!-- queue size for publishing -->
+            <param name="queue_size" type="int" value="1" />
+            <!-- image size to which to resize each input image before feeding into the
+            network (the final output is rescaled to the original image size) -->
+            <param name="img_size" type="int" value="640" />
+            <!-- flag whether to also publish image with the visualized detections -->
+            <param name="visualize" type="bool" value="true" />
+            <!-- 'cuda' or 'cpu' -->
+            <param name="device" type="str" value="cuda" />
+        </node>
+    </launch>
+```

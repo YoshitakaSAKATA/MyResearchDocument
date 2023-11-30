@@ -371,7 +371,7 @@ Please refer to [this document about Picamera2](https://datasheets.raspberrypi.c
         </node>
     </launch>
    ```
-4. 忘れずに
+4. 忘れずに(動かなかったときも)
    ```
    source devel/setup.bash
    ```

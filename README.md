@@ -432,3 +432,23 @@ launchファイルを以下のように編集<br>
         </node>
     </launch>
 ```
+## 検出した座標をtfで変換
+yolov7_rosで検出された物体の中心座標はdetection_convertのdetection_listener.pyでPointStamped形式でPublishされる. 
+tf関係でエラーが出たため
+```
+sudo apt install ros-noetic-geometry2
+```
+でtf2_toolsをインストールして確認
+
+tfがうまく行ってない
+link6->camera_link->color, depth, etc...にしたい
+
+## 深層学習
+1. 参考
+    1. [kerasで2入力1出力のCNN設計をしたい]        (https://ja.stackoverflow.com/questions/72004/keras%E3%81%A72%E5%85%A5%E5%8A%9B1%E5%87%BA%E5%8A%9B%E3%81%AEcnn%E8%A8%AD%E8%A8%88%E3%82%92%E3%81%97%E3%81%9F%E3%81%84)
+入力:グリッパーの内部からの画像, グリッパーの変位
+出力:grasped, N_grasped
+2入力×2ラベルの4通りの画像が必要
+1. 仮想環境を作る
+   ```
+   conda create -n keras_vgg16 python=3.8.10

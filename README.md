@@ -445,7 +445,7 @@ link6->camera_link->color, depth, etc...にしたい
 
 ## 深層学習
 1. 参考
-    1. [kerasで2入力1出力のCNN設計をしたい]        (https://ja.stackoverflow.com/questions/72004/keras%E3%81%A72%E5%85%A5%E5%8A%9B1%E5%87%BA%E5%8A%9B%E3%81%AEcnn%E8%A8%AD%E8%A8%88%E3%82%92%E3%81%97%E3%81%9F%E3%81%84)
+    1. [kerasで2入力1出力のCNN設計をしたい](https://ja.stackoverflow.com/questions/72004/keras%E3%81%A72%E5%85%A5%E5%8A%9B1%E5%87%BA%E5%8A%9B%E3%81%AEcnn%E8%A8%AD%E8%A8%88%E3%82%92%E3%81%97%E3%81%9F%E3%81%84)
     2. [KerasでVGG16を使った転移学習/ファインチューニングをしてみた](https://qiita.com/02130515/items/0c6d0e5d03332acc665e)
     3. [ニューラルネットワークを使った画像分類（VGG16）の基本的な手順を解説する](https://qiita.com/ykoji/items/e9c2c5d7288c6290d21b)
 入力:グリッパーの内部からの画像, グリッパーの変位

@@ -448,9 +448,16 @@ link6->camera_link->color, depth, etc...にしたい
     1. [kerasで2入力1出力のCNN設計をしたい](https://ja.stackoverflow.com/questions/72004/keras%E3%81%A72%E5%85%A5%E5%8A%9B1%E5%87%BA%E5%8A%9B%E3%81%AEcnn%E8%A8%AD%E8%A8%88%E3%82%92%E3%81%97%E3%81%9F%E3%81%84)
     2. [KerasでVGG16を使った転移学習/ファインチューニングをしてみた](https://qiita.com/02130515/items/0c6d0e5d03332acc665e)
     3. [ニューラルネットワークを使った画像分類（VGG16）の基本的な手順を解説する](https://qiita.com/ykoji/items/e9c2c5d7288c6290d21b)
-入力:グリッパーの内部からの画像, グリッパーの変位
-出力:grasped, N_grasped
-2入力×2ラベルの4通りの画像が必要
-1. 仮想環境を作る
+2. 深層学習の構想
+    1. 入力: グリッパーの内部からの画像<br>
+    2. ラベル
+        1. 把持しているか->grasped(1,0)
+        2. 把持対象が変形しているか->Deformed(1,0)
+        3. x方向の位置->(0,1,2)
+        4. y方向の位置->(0,1,2)
+    3. VGG16で特徴抽出->4ラベル分のFCを作る(位置に関してはsoftmax, Deformationとgraspingに関してはsigmoidで活性化)->4ラベル分の情報を出力
+   
+3. 仮想環境を作る
    ```
    conda create -n keras_vgg16 python=3.8.10
+

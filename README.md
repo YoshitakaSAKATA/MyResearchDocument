@@ -441,8 +441,38 @@ sudo apt install ros-noetic-geometry2
 でtf2_toolsをインストールして確認
 
 tfがうまく行ってない
-link6->camera_link->color, depth, etc...にしたい
+link6->camera_link->color, depth, etc...にしたい</br>
+URDFにrealsenseのURDFを統合したらうまく行った
 
+
+## serialUSBのマッピング
+1. FT232R
+    |ID|Value|
+    |-|-|
+    |manufacturer|FTDI|
+    |idVender|0403|
+    |idProduct|6001|
+    |serial|B00054OO|
+    |product|FT232R USB UART|
+
+2. venderID, productID, serial情報の取得
+    ```
+    udevadm info -a -p $(udevadm info -q path -n /dev/ttyUSB0)
+    ```
+    or
+    ```
+    dmesg
+    ```
+3. udevルールファイルの作成
+   1. nanoで編集
+       ```
+       sudo nano /etc/udev/rules.d/10-usb-serial.rules
+       ```
+   2. 編集内容
+       ```
+       KERNEL=="ttyUSB*", ATTRS{idVendor}=="0403", ATTRS{idProduct}="6001", ATTRS{serial}=="XXXXXXXX",     SYMLINK+="ttyUSB_Gripper"
+       ```
+   
 ## 深層学習
 1. 参考
     1. [kerasで2入力1出力のCNN設計をしたい](https://ja.stackoverflow.com/questions/72004/keras%E3%81%A72%E5%85%A5%E5%8A%9B1%E5%87%BA%E5%8A%9B%E3%81%AEcnn%E8%A8%AD%E8%A8%88%E3%82%92%E3%81%97%E3%81%9F%E3%81%84)

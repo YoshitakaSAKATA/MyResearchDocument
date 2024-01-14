@@ -137,7 +137,7 @@ but when creating the second ros workspace, create in the worksp folder
    
 6. Run realsense2_camera using below command
    ```
-   roslaunch realsense2_camera rs_camera.launch
+   roslaunch realsense2_camera rs_camera.launch align_depth:=true
    ```
 
    Run Image View on another terminal
@@ -310,16 +310,16 @@ Please refer to [this document about Picamera2](https://datasheets.raspberrypi.c
 ## YOLACT環境構築
 1. リポジトリインストール
    ```
-   git clone https://github.com/dbolya/yolact.git
-   cd yolact
+   $ git clone https://github.com/dbolya/yolact.git
+   $ cd yolact
    ```
 2. condaで仮想環境(yolact-env)をつくる
    ```
-   conda env create -f environment.yml
+   $ conda env create -f environment.yml
    ```
 3. 環境起動
    ```
-   conda activate yolact-env
+   $ conda activate yolact-env
    ```
 
 ## Yolov7_ros環境構築
@@ -327,17 +327,17 @@ Please refer to [this document about Picamera2](https://datasheets.raspberrypi.c
 [Yolov7_ros](https://github.com/lukazso/yolov7-ros)
 1. ワークスペース(yolo_ws)を作る
    ```
-   cd worksp
-   mkdir -p yolo_ws/src
+   $ cd worksp
+   $ mkdir -p yolo_ws/src
    ```
 2. vision_msgとcommon_msgをワークスペースに入れておく(noetic-develで)
    ```
-   sudo apt-get install ros-noetic-vision-msgs
+   $ sudo apt-get install ros-noetic-vision-msgs
    ```
 
    ```
-   git clone -b noetic-devel https://github.com/ros/common_msgs.git
-   git clone -b noetic-devel https://github.com/ros-perception/vision_msgs.git
+   $ git clone -b noetic-devel https://github.com/ros/common_msgs.git
+   $ git clone -b noetic-devel https://github.com/ros-perception/vision_msgs.git
    ```
 
 3. yolov7.launchを編集する<br>
@@ -373,14 +373,14 @@ Please refer to [this document about Picamera2](https://datasheets.raspberrypi.c
    ```
 4. 忘れずに(動かなかったときも)
    ```
-   source devel/setup.bash
+   $ source devel/setup.bash
    ```
    
 5. 起動方法
    
    realsenseノードを起動した後
    ```
-   roslaunch yolov7_ros yolov7.launch
+   $ roslaunch yolov7_ros yolov7.launch
    ```
 6. エラーが起きたときの参考用
    1. [Error when invoking catkin_make #26](https://github.com/lukazso/yolov7-ros/issues/26)
@@ -397,7 +397,7 @@ Please refer to [this document about Picamera2](https://datasheets.raspberrypi.c
 ## 学習
 バッチ数8(これが限界)、エポック数300で学習
 ```
-python3 train.py --workers 8 --device 0 --batch-size 8 --data data/YOLODataset/dataset.yaml  --img 640 640 --cfg cfg/training/yolov7.yaml --weights 'yolov7_training.pt' --name yolov7-marshmallow --hyp data/hyp.scratch.custom.yaml
+$ python3 train.py --workers 8 --device 0 --batch-size 8 --data data/YOLODataset/dataset.yaml  --img 640 640 --cfg cfg/training/yolov7.yaml --weights 'yolov7_training.pt' --name yolov7-marshmallow --hyp data/hyp.scratch.custom.yaml
 ```
 
 ## 実行
@@ -436,7 +436,7 @@ launchファイルを以下のように編集<br>
 yolov7_rosで検出された物体の中心座標はdetection_convertのdetection_listener.pyでPointStamped形式でPublishされる. 
 tf関係でエラーが出たため
 ```
-sudo apt install ros-noetic-geometry2
+$ sudo apt install ros-noetic-geometry2
 ```
 でtf2_toolsをインストールして確認
 
@@ -457,22 +457,32 @@ URDFにrealsenseのURDFを統合したらうまく行った
 
 2. venderID, productID, serial情報の取得
     ```
-    udevadm info -a -p $(udevadm info -q path -n /dev/ttyUSB0)
+    $ udevadm info -a -p $(udevadm info -q path -n /dev/ttyUSB0)
     ```
     or
     ```
-    dmesg
+    $ dmesg
     ```
 3. udevルールファイルの作成
    1. nanoで編集
        ```
-       sudo nano /etc/udev/rules.d/10-usb-serial.rules
+       $ sudo nano /etc/udev/rules.d/10-usb-serial.rules
        ```
    2. 編集内容
        ```
        KERNEL=="ttyUSB*", ATTRS{idVendor}=="0403", ATTRS{idProduct}="6001", ATTRS{serial}=="XXXXXXXX",     SYMLINK+="ttyUSB_Gripper"
        ```
-   
+   3. reload
+      ```
+      $ sudo service udev reload
+      ```
+   4. 接続後
+      ```
+      $ ls -l /dev/ttyUSB*
+      ```
+
+## January-9th データ取得用にキー入力の間画像を保存するように変更 
+
 ## 深層学習
 1. 参考
     1. [kerasで2入力1出力のCNN設計をしたい](https://ja.stackoverflow.com/questions/72004/keras%E3%81%A72%E5%85%A5%E5%8A%9B1%E5%87%BA%E5%8A%9B%E3%81%AEcnn%E8%A8%AD%E8%A8%88%E3%82%92%E3%81%97%E3%81%9F%E3%81%84)

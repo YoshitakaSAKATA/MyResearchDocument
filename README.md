@@ -480,6 +480,10 @@ URDFにrealsenseのURDFを統合したらうまく行った
       ```
       $ ls -l /dev/ttyUSB*
       ```
+   5. 権限付与
+      ```
+      $ sudo chmod 666 /dev/ttyUSB_Gripper
+      ```
 
 ## January-9th データ取得用にキー入力の間画像を保存するように変更 
 
